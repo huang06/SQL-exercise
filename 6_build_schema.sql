@@ -1,28 +1,28 @@
 -- https://en.wikibooks.org/wiki/SQL_Exercises/Scientists
 
-create table Scientists (
+CREATE TABLE Scientists (
     SSN int,
-    Name char(30) not null,
-    primary key (SSN)
+    Name char(30) NOT NULL,
+    PRIMARY KEY (SSN)
 );
 
-create table Projects (
+CREATE TABLE Projects (
     Code char(4),
-    Name char(50) not null,
+    Name char(50) NOT NULL,
     Hours int,
-    primary key (Code)
+    PRIMARY KEY (Code)
 );
 
-create table AssignedTo (
-    Scientist int not null,
-    Project char(4) not null,
-    primary key (Scientist, Project),
-    foreign key (Scientist) references Scientists (SSN),
-    foreign key (Project) references Projects (Code)
+CREATE TABLE AssignedTo (
+    Scientist int NOT NULL,
+    Project char(4) NOT NULL,
+    PRIMARY KEY (Scientist, Project),
+    FOREIGN KEY (Scientist) REFERENCES Scientists (SSN),
+    FOREIGN KEY (Project) REFERENCES Projects (Code)
 );
 
-insert into Scientists (SSN, Name)
-values (123234877, 'Michael Rogers'),
+INSERT INTO Scientists (SSN, Name)
+VALUES (123234877, 'Michael Rogers'),
 (152934485, 'Anand Manikutty'),
 (222364883, 'Carol Smith'),
 (326587417, 'Joe Stevens'),
@@ -35,8 +35,8 @@ values (123234877, 'Michael Rogers'),
 (845657245, 'Elizabeth Doe'),
 (845657246, 'Kumar Swamy');
 
-insert into Projects (Code, Name, Hours)
-values ('AeH1', 'Winds: Studying Bernoullis Principle', 156),
+INSERT INTO Projects (Code, Name, Hours)
+VALUES ('AeH1', 'Winds: Studying Bernoullis Principle', 156),
 ('AeH2', 'Aerodynamics and Bridge Design', 189),
 ('AeH3', 'Aerodynamics and Gas Mileage', 256),
 ('AeH4', 'Aerodynamics and Ice Hockey', 789),
@@ -51,8 +51,8 @@ values ('AeH1', 'Winds: Studying Bernoullis Principle', 156),
 ('Che1', 'A Silver-Cleaning Battery', 545),
 ('Che2', 'A Soluble Separation Solution', 778);
 
-insert into AssignedTo (Scientist, Project)
-values (123234877, 'AeH1'),
+INSERT INTO AssignedTo (Scientist, Project)
+VALUES (123234877, 'AeH1'),
 (152934485, 'AeH3'),
 (222364883, 'Ast3'),
 (326587417, 'Ast3'),
