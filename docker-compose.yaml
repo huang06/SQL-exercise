@@ -1,0 +1,28 @@
+---
+version: '3'  # optional since v1.27.0
+services:
+  postgres:
+    image: docker.io/library/postgres:14.3-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    ports:
+      - 15432:5432
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./1_build_schema.sql:/docker-entrypoint-initdb.d/1_build_schema.sql
+      - ./2_build_schema.sql:/docker-entrypoint-initdb.d/2_build_schema.sql
+      - ./3_build_schema.sql:/docker-entrypoint-initdb.d/3_build_schema.sql
+      - ./4_build_schema.sql:/docker-entrypoint-initdb.d/4_build_schema.sql
+      - ./5_build_schema.sql:/docker-entrypoint-initdb.d/5_build_schema.sql
+      - ./6_build_schema.sql:/docker-entrypoint-initdb.d/6_build_schema.sql
+      - ./7_build_schema.sql:/docker-entrypoint-initdb.d/7_build_schema.sql
+      - ./8_build_schema.sql:/docker-entrypoint-initdb.d/8_build_schema.sql
+    healthcheck:
+      test: [CMD, pg_isready, -U, postgres]
+      interval: 5s
+      retries: 5
+    restart: always
+volumes:
+  pgdata:
