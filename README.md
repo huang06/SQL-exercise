@@ -1,6 +1,8 @@
 # SQL Exercises
 
-<https://en.wikibooks.org/wiki/SQL_Exercises>
+[SQL_Exercises](https://en.wikibooks.org/wiki/SQL_Exercises) provides lots of exercies for developers to learn and improve SQL skills. It also provides SQL scripts to build for sqlite system.
+
+We rewrite the SQL scripts for PostgreSQL and create a PostgreSQL database using Docker Compose. It could help users set up database quickly.
 
 ## Quickstart
 
