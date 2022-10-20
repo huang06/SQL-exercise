@@ -13,16 +13,16 @@ CREATE TABLE Products (
     CONSTRAINT Fk_Manufacturers_Code REFERENCES Manufacturers(Code)
 );
 
-INSERT INTO Manufacturers(Code, Name) VALUES (1, 'Sony'),
+INSERT INTO Manufacturers (Code, Name)
+VALUES (1, 'Sony'),
 (2, 'Creative Labs'),
 (3, 'Hewlett-Packard'),
 (4, 'Iomega'),
 (5, 'Fujitsu'),
 (6, 'Winchester');
 
-INSERT INTO Products(
-    Code, Name, Price, Manufacturer
-) VALUES(1, 'Hard drive', 240, 5),
+INSERT INTO Products (Code, Name, Price, Manufacturer)
+VALUES (1, 'Hard drive', 240, 5),
 (2, 'Memory', 120, 6),
 (3, 'ZIP drive', 150, 4),
 (4, 'Floppy disk', 5, 6),
