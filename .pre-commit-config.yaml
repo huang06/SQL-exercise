@@ -21,3 +21,13 @@ repos:
         args: ["--dialect", "postgres"]
       - id: sqlfluff-fix
         args: ["--dialect", "postgres"]
+  - repo: local
+    hooks:
+      - id: lint-markdown
+        name: Run markdownlint
+        description: Checks the style of Markdown files.
+        entry: markdownlint
+        language: node
+        types: [markdown]
+        files: \.(md|mdown|markdown)$
+        additional_dependencies: ['markdownlint-cli']
