@@ -208,69 +208,70 @@ VALUES (
 (86213939, 100000004, 102, 9, '2008-04-27 10:00', '2008-04-21 11:00', 'A'),
 (93216548, 100000002, 101, 2, '2008-04-27 10:00', '2008-04-27 11:00', 'B');
 
-INSERT INTO Medication VALUES(1, 'Procrastin-X', 'X', 'N/A');
-INSERT INTO Medication VALUES(2, 'Thesisin', 'Foo Labs', 'N/A');
-INSERT INTO Medication VALUES(3, 'Awakin', 'Bar Laboratories', 'N/A');
-INSERT INTO Medication VALUES(4, 'Crescavitin', 'Baz Industries', 'N/A');
-INSERT INTO Medication VALUES(5, 'Melioraurin', 'Snafu Pharmaceuticals', 'N/A');
+INSERT INTO Medication (Code, Name, Brand, Description)
+VALUES (1, 'Procrastin-X', 'X', 'N/A'),
+(2, 'Thesisin', 'Foo Labs', 'N/A'),
+(3, 'Awakin', 'Bar Laboratories', 'N/A'),
+(4, 'Crescavitin', 'Baz Industries', 'N/A'),
+(5, 'Melioraurin', 'Snafu Pharmaceuticals', 'N/A');
 
-INSERT INTO Prescribes VALUES(
-    1, 100000001, 1, '2008-04-24 10:47', 13216584, '5'
-);
-INSERT INTO Prescribes VALUES(
-    9, 100000004, 2, '2008-04-27 10:53', 86213939, '10'
-);
-INSERT INTO Prescribes VALUES(9, 100000004, 2, '2008-04-30 16:53', NULL, '5');
 
-INSERT INTO Block VALUES(1, 1);
-INSERT INTO Block VALUES(1, 2);
-INSERT INTO Block VALUES(1, 3);
-INSERT INTO Block VALUES(2, 1);
-INSERT INTO Block VALUES(2, 2);
-INSERT INTO Block VALUES(2, 3);
-INSERT INTO Block VALUES(3, 1);
-INSERT INTO Block VALUES(3, 2);
-INSERT INTO Block VALUES(3, 3);
-INSERT INTO Block VALUES(4, 1);
-INSERT INTO Block VALUES(4, 2);
-INSERT INTO Block VALUES(4, 3);
+INSERT INTO Prescribes (Physician, Patient, Medication, Date, Appointment, Dose)
+VALUES (1, 100000001, 1, '2008-04-24 10:47', 13216584, '5'),
+(9, 100000004, 2, '2008-04-27 10:53', 86213939, '10'),
+(9, 100000004, 2, '2008-04-30 16:53', NULL, '5');
 
-INSERT INTO Room VALUES(101, 'Single', 1, 1, FALSE);
-INSERT INTO Room VALUES(102, 'Single', 1, 1, FALSE);
-INSERT INTO Room VALUES(103, 'Single', 1, 1, FALSE);
-INSERT INTO Room VALUES(111, 'Single', 1, 2, FALSE);
-INSERT INTO Room VALUES(112, 'Single', 1, 2, TRUE);
-INSERT INTO Room VALUES(113, 'Single', 1, 2, FALSE);
-INSERT INTO Room VALUES(121, 'Single', 1, 3, FALSE);
-INSERT INTO Room VALUES(122, 'Single', 1, 3, FALSE);
-INSERT INTO Room VALUES(123, 'Single', 1, 3, FALSE);
-INSERT INTO Room VALUES(201, 'Single', 2, 1, TRUE);
-INSERT INTO Room VALUES(202, 'Single', 2, 1, FALSE);
-INSERT INTO Room VALUES(203, 'Single', 2, 1, FALSE);
-INSERT INTO Room VALUES(211, 'Single', 2, 2, FALSE);
-INSERT INTO Room VALUES(212, 'Single', 2, 2, FALSE);
-INSERT INTO Room VALUES(213, 'Single', 2, 2, TRUE);
-INSERT INTO Room VALUES(221, 'Single', 2, 3, FALSE);
-INSERT INTO Room VALUES(222, 'Single', 2, 3, FALSE);
-INSERT INTO Room VALUES(223, 'Single', 2, 3, FALSE);
-INSERT INTO Room VALUES(301, 'Single', 3, 1, FALSE);
-INSERT INTO Room VALUES(302, 'Single', 3, 1, TRUE);
-INSERT INTO Room VALUES(303, 'Single', 3, 1, FALSE);
-INSERT INTO Room VALUES(311, 'Single', 3, 2, FALSE);
-INSERT INTO Room VALUES(312, 'Single', 3, 2, FALSE);
-INSERT INTO Room VALUES(313, 'Single', 3, 2, FALSE);
-INSERT INTO Room VALUES(321, 'Single', 3, 3, TRUE);
-INSERT INTO Room VALUES(322, 'Single', 3, 3, FALSE);
-INSERT INTO Room VALUES(323, 'Single', 3, 3, FALSE);
-INSERT INTO Room VALUES(401, 'Single', 4, 1, FALSE);
-INSERT INTO Room VALUES(402, 'Single', 4, 1, TRUE);
-INSERT INTO Room VALUES(403, 'Single', 4, 1, FALSE);
-INSERT INTO Room VALUES(411, 'Single', 4, 2, FALSE);
-INSERT INTO Room VALUES(412, 'Single', 4, 2, FALSE);
-INSERT INTO Room VALUES(413, 'Single', 4, 2, FALSE);
-INSERT INTO Room VALUES(421, 'Single', 4, 3, TRUE);
-INSERT INTO Room VALUES(422, 'Single', 4, 3, FALSE);
-INSERT INTO Room VALUES(423, 'Single', 4, 3, FALSE);
+INSERT INTO Block (Floor, Code)
+VALUES (1, 1),
+(1, 2),
+(1, 3),
+(2, 1),
+(2, 2),
+(2, 3),
+(3, 1),
+(3, 2),
+(3, 3),
+(4, 1),
+(4, 2),
+(4, 3);
+
+INSERT INTO Room (Number, Type, BlockFloor, BlockCode, Unavailable)
+VALUES (101, 'Single', 1, 1, FALSE),
+(102, 'Single', 1, 1, FALSE),
+(103, 'Single', 1, 1, FALSE),
+(111, 'Single', 1, 2, FALSE),
+(112, 'Single', 1, 2, TRUE),
+(113, 'Single', 1, 2, FALSE),
+(121, 'Single', 1, 3, FALSE),
+(122, 'Single', 1, 3, FALSE),
+(123, 'Single', 1, 3, FALSE),
+(201, 'Single', 2, 1, TRUE),
+(202, 'Single', 2, 1, FALSE),
+(203, 'Single', 2, 1, FALSE),
+(211, 'Single', 2, 2, FALSE),
+(212, 'Single', 2, 2, FALSE),
+(213, 'Single', 2, 2, TRUE),
+(221, 'Single', 2, 3, FALSE),
+(222, 'Single', 2, 3, FALSE),
+(223, 'Single', 2, 3, FALSE),
+(301, 'Single', 3, 1, FALSE),
+(302, 'Single', 3, 1, TRUE),
+(303, 'Single', 3, 1, FALSE),
+(311, 'Single', 3, 2, FALSE),
+(312, 'Single', 3, 2, FALSE),
+(313, 'Single', 3, 2, FALSE),
+(321, 'Single', 3, 3, TRUE),
+(322, 'Single', 3, 3, FALSE),
+(323, 'Single', 3, 3, FALSE),
+(401, 'Single', 4, 1, FALSE),
+(402, 'Single', 4, 1, TRUE),
+(403, 'Single', 4, 1, FALSE),
+(411, 'Single', 4, 2, FALSE),
+(412, 'Single', 4, 2, FALSE),
+(413, 'Single', 4, 2, FALSE),
+(421, 'Single', 4, 3, TRUE),
+(422, 'Single', 4, 3, FALSE),
+(423, 'Single', 4, 3, FALSE);
 
 INSERT INTO On_Call VALUES(101, 1, 1, '2008-11-04 11:00', '2008-11-04 19:00');
 INSERT INTO On_Call VALUES(101, 1, 2, '2008-11-04 11:00', '2008-11-04 19:00');
