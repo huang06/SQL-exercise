@@ -9,7 +9,7 @@ CREATE TABLE Departments (
 CREATE TABLE Employees (
     SSN INTEGER PRIMARY KEY NOT NULL,
     Name TEXT NOT NULL,
-    LastName VARCHAR NOT NULL, --since question 2 asks about removing duplicate - text must be converted if the answer is using distinct
+    LastName VARCHAR NOT NULL,
     Department INTEGER NOT NULL,
     CONSTRAINT Fk_Departments_Code FOREIGN KEY(Department)
     REFERENCES Departments(Code)
